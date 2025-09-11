@@ -2,9 +2,16 @@
 import { notFound } from 'next/navigation';
 
 // --- Типи ---
-type CityKey = 'bolekhiv' | 'kalush'; // Додай інші міста, коли будеш розширювати
+type CitySlug = 'bolekhiv' | 'kalush'; // Додай інші міста за потреби
 
-const citiesData = {
+interface CityData {
+  name: string;
+  image: string;
+  listings: string[];
+  count: number;
+}
+
+const citiesData: Record<CitySlug, CityData> = {
   bolekhiv: {
     name: "Болехів",
     image: "https://www.realestate.if.ua/assets/images/locations/bolekhiv.jpg",
@@ -24,10 +31,10 @@ const citiesData = {
     ],
     count: 61,
   },
-} as const; // `as const` допомагає TypeScript краще зрозуміти структуру
+};
 
 export default function CityPage({ params }: { params: { slug: string } }) {
-  const cityKey = params.slug as CityKey; // Явне приведення типу
+  const cityKey = params.slug as CitySlug; // Явне приведення типу
   const city = citiesData[cityKey];
 
   if (!city) {
