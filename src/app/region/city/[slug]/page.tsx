@@ -1,7 +1,9 @@
 // /src/app/region/city/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 
-// Тимчасова база даних міст (потім замінимо на CMS)
+// --- Типи ---
+type CityKey = 'bolekhiv' | 'kalush'; // Додай інші міста, коли будеш розширювати
+
 const citiesData = {
   bolekhiv: {
     name: "Болехів",
@@ -22,11 +24,10 @@ const citiesData = {
     ],
     count: 61,
   },
-  // Додай інші міста за потреби
-};
+} as const; // `as const` допомагає TypeScript краще зрозуміти структуру
 
 export default function CityPage({ params }: { params: { slug: string } }) {
-  const cityKey = params.slug;
+  const cityKey = params.slug as CityKey; // Явне приведення типу
   const city = citiesData[cityKey];
 
   if (!city) {
