@@ -1,6 +1,6 @@
 import Image from "next/image";
+import Link from 'next/link';
 
-// src/app/page.tsx
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -16,80 +16,109 @@ export default function Home() {
         </p>
       </header>
 
-      {/* Нерухомість у містах обласного значення */}
-      <section className="py-12 px-4 max-w-7xl mx-auto">
-        <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
-          Нерухомість в містах обласного значення Івано-Франківської області
-        </h2>
+      <div className="py-12 px-4 max-w-7xl mx-auto">
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {/* Карточка: Болехів */}
-          <CityCard
-            city="Болехів"
-            image="https://www.realestate.if.ua/assets/images/locations/bolekhiv.jpg"
-            listings={[
-              "Продається будинок 32.4 м², 628 500 ₴",
-              "Продається будинок 66.6 м², 628 500 ₴",
-            ]}
-            count={19}
-          />
+        {/* --- Міста обласного значення --- */}
+        <section className="mb-12">
+          <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
+            Нерухомість в містах обласного значення
+          </h2>
 
-          {/* Карточка: Бурштин */}
-          <CityCard
-            city="Бурштин"
-            image="https://www.realestate.if.ua/assets/images/locations/burshtyn.jpg"
-            listings={[
-              "Продаж будинку 112 м², 921 800 ₴",
-              "Продаю квартиру 87 м², 1 759 800 ₴",
-            ]}
-            count={26}
-          />
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              { slug: 'bolekhiv', name: 'Болехів', count: 19, img: 'https://www.realestate.if.ua/assets/images/locations/bolekhiv.jpg' },
+              { slug: 'burshtyn', name: 'Бурштин', count: 26, img: 'https://www.realestate.if.ua/assets/images/locations/burshtyn.jpg' },
+              { slug: 'ivano-frankivsk', name: 'Івано-Франківськ', count: 483, img: 'https://www.realestate.if.ua/assets/images/locations/ivano-frankivsk.jpg' },
+              { slug: 'kalush', name: 'Калуш', count: 61, img: 'https://www.realestate.if.ua/assets/images/locations/kalush.jpg' },
+              { slug: 'kolomyia', name: 'Коломия', count: 86, img: 'https://www.realestate.if.ua/assets/images/locations/kolomyia.jpg' },
+              { slug: 'yaremche', name: 'Яремче', count: 37, img: 'https://www.realestate.if.ua/assets/images/locations/yaremche.jpg' }
+            ].map((city) => (
+              <Link key={city.slug} href="/region/city/" className="block">
+                <div className="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 overflow-hidden">
+                  <img src={city.img} alt={`Нерухомість у місті ${city.name}`} className="w-full h-48 object-cover" />
+                  <div className="p-4">
+                    <h3 className="font-semibold text-lg text-gray-800 mb-3">Нерухомість у місті {city.name}</h3>
+                    <ul className="space-y-1 text-sm text-gray-600">
+                      <li>• Продається будинок, 32.4 м², ₴628 500</li>
+                      <li>• Продається будинок, 66.6 м², ₴628 500</li>
+                    </ul>
+                    <p className="mt-3 text-blue-600 font-medium">
+                      Інші <strong>{city.count}</strong> пропозицій
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
 
-          {/* Карточка: Івано-Франківськ */}
-          <CityCard
-            city="Івано-Франківськ"
-            image="https://www.realestate.if.ua/assets/images/locations/ivano-frankivsk.jpg"
-            listings={[
-              "Продаж квартири 45.4 м², 1 801 700 ₴",
-              "Продається будинок 590 м², 25 140 000 ₴",
-            ]}
-            count={483}
-          />
+        {/* --- Міста районного значення --- */}
+        <section className="mb-12">
+          <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
+            Нерухомість в містах районного значення
+          </h2>
 
-          {/* Карточка: Калуш */}
-          <CityCard
-            city="Калуш"
-            image="https://www.realestate.if.ua/assets/images/locations/kalush.jpg"
-            listings={[
-              "Продаю будинок 119 м², 3 310 100 ₴",
-              "Продаж будинку 147 м², 1 257 000 ₴",
-            ]}
-            count={61}
-          />
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              { slug: 'dolyna', name: 'Долина', count: 33, img: 'https://www.realestate.if.ua/assets/images/locations/dolyna.jpg' },
+              { slug: 'halych', name: 'Галич', count: 21, img: 'https://www.realestate.if.ua/assets/images/locations/halych.jpg' },
+              { slug: 'horodenka', name: 'Городенка', count: 25, img: 'https://www.realestate.if.ua/assets/images/locations/horodenka.jpg' },
+              { slug: 'kosiv', name: 'Косів', count: 25, img: 'https://www.realestate.if.ua/assets/images/locations/kosiv.jpg' },
+              { slug: 'nadvirna', name: 'Надвірна', count: 37, img: 'https://www.realestate.if.ua/assets/images/locations/nadvirna.jpg' },
+              { slug: 'rohatyn', name: 'Рогатин', count: 21, img: 'https://www.realestate.if.ua/assets/images/locations/rohatyn.jpg' },
+              { slug: 'sniatyn', name: 'Снятин', count: 41, img: 'https://www.realestate.if.ua/assets/images/locations/sniatyn.jpg' },
+              { slug: 'tlumach', name: 'Тлумач', count: 16, img: 'https://www.realestate.if.ua/assets/images/locations/tlumach.jpg' },
+              { slug: 'tysmenytsya', name: 'Тисмениця', count: 29, img: 'https://www.realestate.if.ua/assets/images/locations/tysmenytsya.jpg' }
+            ].map((town) => (
+              <Link key={town.slug} href="/district/town/" className="block">
+                <div className="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 overflow-hidden">
+                  <img src={town.img} alt={`Нерухомість у місті ${town.name}`} className="w-full h-48 object-cover" />
+                  <div className="p-4">
+                    <h3 className="font-semibold text-lg text-gray-800 mb-3">Нерухомість у місті {town.name}</h3>
+                    <ul className="space-y-1 text-sm text-gray-600">
+                      <li>• Продається квартира, 45.4 м², ₴1 801 700</li>
+                      <li>• Продається будинок, 590 м², ₴25 140 000</li>
+                    </ul>
+                    <p className="mt-3 text-blue-600 font-medium">
+                      Інші <strong>{town.count}</strong> пропозицій
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
 
-          {/* Карточка: Коломия */}
-          <CityCard
-            city="Коломия"
-            image="https://www.realestate.if.ua/assets/images/locations/kolomyia.jpg"
-            listings={[
-              "Продаю будинок 122 м², 5 447 000 ₴",
-              "Продаж квартири 81 м², 2 095 000 ₴",
-            ]}
-            count={86}
-          />
+        {/* --- Райони області --- */}
+        <section>
+          <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
+            Нерухомість в районах Івано-Франківської області
+          </h2>
 
-          {/* Карточка: Яремче */}
-          <CityCard
-            city="Яремче"
-            image="https://www.realestate.if.ua/assets/images/locations/yaremche.jpg"
-            listings={[
-              "Продаю земельну ділянку 1191 м², 3 992 232 ₴",
-              "Продаю будинок 90 м², 6 704 000 ₴",
-            ]}
-            count={37}
-          />
-        </div>
-      </section>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              'Івано-Франківський',
+              'Коломийський',
+              'Калуський',
+              'Косівський',
+              'Надвірнянський',
+              'Верховинський',
+              'Городенківський',
+              'Рожнятівський',
+              'Тлумацький',
+              'Долинський',
+              'Снятинський'
+            ].map((district) => (
+              <Link key={district} href={`/district/${district.toLowerCase().replace('ій', 'yy')}/`} className="block">
+                <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow duration-200 text-center">
+                  <h3 className="font-medium text-gray-800">Нерухомість у {district} районі</h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+      </div>
 
       {/* Підвал */}
       <footer className="bg-gray-800 text-white py-6 text-center text-sm">
@@ -98,136 +127,3 @@ export default function Home() {
     </div>
   );
 }
-
-// Тип для карточки міста
-type CityCardProps = {
-  city: string;
-  image: string;
-  listings: string[];
-  count: number;
-};
-// Компонент карточки міста
-function CityCard({ city, image, listings, count }: CityCardProps) {
-  return (
-    <div className="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 overflow-hidden">
-      <img src={image} alt={`Нерухомість у місті ${city}`} className="w-full h-48 object-cover" />
-      <div className="p-4">
-        <h3 className="font-semibold text-lg text-gray-800 mb-3">Нерухомість у місті {city}</h3>
-        <ul className="space-y-2 text-sm text-gray-600">
-          {listings.map((item, i) => (
-            <li key={i} className="before:content-['•'] before:mr-2">
-              {item}
-            </li>
-          ))}
-        </ul>
-        <p className="mt-3 text-blue-600 font-medium">
-          Інші <strong>{count}</strong> пропозицій
-        </p>
-      </div>
-    </div>
-  );
-}
-
-/*
-export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
-}
-*/
