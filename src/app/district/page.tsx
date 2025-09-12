@@ -1,5 +1,6 @@
 // /src/app/district/page.tsx
 import Link from 'next/link';
+import Image from 'next/image';
 
 const districts = [
   {
@@ -58,13 +59,16 @@ export default function DistrictPage() {
         {districts.map((dist) => (
           <Link key={dist.slug} href={`/district/${dist.slug}/`} className="block">
             <div className="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 overflow-hidden">
-              <img
+              <Image
                 src={dist.image}
                 alt={`Нерухомість у ${dist.name}`}
-                className="w-full h-48 object-cover"
+                width={400}
+                height={300}
+                className="w-full h-48 object-cover rounded-t-lg"
+                priority={false}
               />
-              <div className="p-4">
-                <h3 className="font-semibold text-lg text-gray-800 mb-3">{dist.name}</h3>
+              <div className="p-4 border-l-4 border-green-500 bg-gray-50 rounded-b-lg">
+                <h3 className="font-semibold text-lg text-gray-800 mb-2">{dist.name}</h3>
                 <p className="text-blue-600 font-medium">
                   Інші <strong>{dist.count}</strong> пропозицій
                 </p>

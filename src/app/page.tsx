@@ -35,7 +35,7 @@ export default function Home() {
             ].map((city) => (
               <Link key={city.slug} href="/region/city/" className="block">
                 <div className="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 overflow-hidden">
-                  <img src={city.img} alt={`Нерухомість у місті ${city.name}`} className="w-full h-48 object-cover" />
+                  <Image src={city.img} width={400} height={300}alt={`Нерухомість у місті ${city.name}`} className="w-full h-48 object-cover rounded-t-lg" priority={false}/>
                   <div className="p-4">
                     <h3 className="font-semibold text-lg text-gray-800 mb-3">Нерухомість у місті {city.name}</h3>
                     <ul className="space-y-1 text-sm text-gray-600">
@@ -72,7 +72,7 @@ export default function Home() {
             ].map((town) => (
               <Link key={town.slug} href="/district/town/" className="block">
                 <div className="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 overflow-hidden">
-                  <img src={town.img} alt={`Нерухомість у місті ${town.name}`} className="w-full h-48 object-cover" />
+                  <Image src={town.img} width={400} height={300}alt={`Нерухомість у місті ${town.name}`} className="w-full h-48 object-cover rounded-t-lg" priority={false} />
                   <div className="p-4">
                     <h3 className="font-semibold text-lg text-gray-800 mb-3">Нерухомість у місті {town.name}</h3>
                     <ul className="space-y-1 text-sm text-gray-600">
