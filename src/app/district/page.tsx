@@ -9,22 +9,22 @@ const districts = [
     count: 75,
   },
   {
+    slug: 'kaluskyy',
+    name: 'Калуський район',
+    image: 'https://www.realestate.if.ua/assets/images/locations/kaluskyy.jpg',
+    count: 46,
+  },
+  {
     slug: 'kolomyyskyy',
     name: 'Коломийський район',
     image: 'https://www.realestate.if.ua/assets/images/locations/kolomyyskyy.jpg',
     count: 86,
   },
   {
-    slug: 'kaluskyy',
-    name: 'Калуський район',
-    image: 'https://www.realestate.if.ua/assets/images/locations/kaluskyy.jpg',
-    count: 61,
-  },
-  {
     slug: 'kosivskyy',
     name: 'Косівський район',
     image: 'https://www.realestate.if.ua/assets/images/locations/kosivskyy.jpg',
-    count: 25,
+    count: 20,
   },
   {
     slug: 'nadvirnyanskyy',
@@ -36,37 +36,7 @@ const districts = [
     slug: 'verkhovynskyy',
     name: 'Верховинський район',
     image: 'https://www.realestate.if.ua/assets/images/locations/verkhovynskyy.jpg',
-    count: 40,
-  },
-  {
-    slug: 'horodenkivskyy',
-    name: 'Городенківський район',
-    image: 'https://www.realestate.if.ua/assets/images/locations/horodenkivskyy.jpg',
-    count: 25,
-  },
-  {
-    slug: 'rozhniativskyy',
-    name: 'Рожнятівський район',
-    image: 'https://www.realestate.if.ua/assets/images/locations/rozhniativskyy.jpg',
-    count: 25,
-  },
-  {
-    slug: 'tlumatskyy',
-    name: 'Тлумацький район',
-    image: 'https://www.realestate.if.ua/assets/images/locations/tlumatskyy.jpg',
-    count: 16,
-  },
-  {
-    slug: 'dolynskyy',
-    name: 'Долинський район',
-    image: 'https://www.realestate.if.ua/assets/images/locations/dolynskyy.jpg',
-    count: 33,
-  },
-  {
-    slug: 'sniatynskyy',
-    name: 'Снятинський район',
-    image: 'https://www.realestate.if.ua/assets/images/locations/sniatynskyy.jpg',
-    count: 41,
+    count: 37,
   },
 ];
 
