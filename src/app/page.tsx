@@ -34,7 +34,7 @@ export default function Home() {
               { slug: 'kolomyia', name: 'Коломия', img: 'https://www.realestate.if.ua/assets/images/locations/kolomyia.jpg', count: 86 },
               { slug: 'yaremche', name: 'Яремче', img: 'https://www.realestate.if.ua/assets/images/locations/yaremche.jpg', count: 37 }
             ].map((city) => (
-              <Link key={city.slug} href="/region/city/" className="block">
+              <Link key={city.slug} href={`/region/city/${city.slug}/`} className="block">
                 <Image
                   src={city.img}
                   alt={`Нерухомість у місті ${city.name}`}
@@ -72,7 +72,7 @@ export default function Home() {
               { slug: 'tlumach', name: 'Тлумач', img: 'https://www.realestate.if.ua/assets/images/locations/tlumach.jpg', count: 16 },
               { slug: 'tysmenytsya', name: 'Тисмениця', img: 'https://www.realestate.if.ua/assets/images/locations/tysmenytsya.jpg', count: 29 }
             ].map((town) => (
-              <Link key={town.slug} href="/district/town/" className="block">
+              <Link key={town.slug} href={`/district/town/${town.slug}/`} className="block">
                 <Image
                   src={town.img}
                   alt={`Нерухомість у місті ${town.name}`}
