@@ -1,4 +1,5 @@
-import Image from "next/image";
+// src/app/page.tsx
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
@@ -16,36 +17,37 @@ export default function Home() {
         </p>
       </header>
 
-      <div className="py-12 px-4 max-w-7xl mx-auto">
+      <div className="py-12 px-4 max-w-7xl mx-auto space-y-12">
 
         {/* --- Міста обласного значення --- */}
-        <section className="mb-12">
+        <section>
           <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
             Нерухомість в містах обласного значення
           </h2>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
-              { slug: 'bolekhiv', name: 'Болехів', count: 19, img: 'https://www.realestate.if.ua/assets/images/locations/bolekhiv.jpg' },
-              { slug: 'burshtyn', name: 'Бурштин', count: 26, img: 'https://www.realestate.if.ua/assets/images/locations/burshtyn.jpg' },
-              { slug: 'ivano-frankivsk', name: 'Івано-Франківськ', count: 483, img: 'https://www.realestate.if.ua/assets/images/locations/ivano-frankivsk.jpg' },
-              { slug: 'kalush', name: 'Калуш', count: 61, img: 'https://www.realestate.if.ua/assets/images/locations/kalush.jpg' },
-              { slug: 'kolomyia', name: 'Коломия', count: 86, img: 'https://www.realestate.if.ua/assets/images/locations/kolomyia.jpg' },
-              { slug: 'yaremche', name: 'Яремче', count: 37, img: 'https://www.realestate.if.ua/assets/images/locations/yaremche.jpg' }
+              { slug: 'bolekhiv', name: 'Болехів', img: 'https://www.realestate.if.ua/assets/images/locations/bolekhiv.jpg', count: 19 },
+              { slug: 'burshtyn', name: 'Бурштин', img: 'https://www.realestate.if.ua/assets/images/locations/burshtyn.jpg', count: 26 },
+              { slug: 'ivano-frankivsk', name: 'Івано-Франківськ', img: 'https://www.realestate.if.ua/assets/images/locations/ivano-frankivsk.jpg', count: 483 },
+              { slug: 'kalush', name: 'Калуш', img: 'https://www.realestate.if.ua/assets/images/locations/kalush.jpg', count: 61 },
+              { slug: 'kolomyia', name: 'Коломия', img: 'https://www.realestate.if.ua/assets/images/locations/kolomyia.jpg', count: 86 },
+              { slug: 'yaremche', name: 'Яремче', img: 'https://www.realestate.if.ua/assets/images/locations/yaremche.jpg', count: 37 }
             ].map((city) => (
               <Link key={city.slug} href="/region/city/" className="block">
-                <div className="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 overflow-hidden">
-                  <Image src={city.img} width={400} height={300}alt={`Нерухомість у місті ${city.name}`} className="w-full h-48 object-cover rounded-t-lg" priority={false}/>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-lg text-gray-800 mb-3">Нерухомість у місті {city.name}</h3>
-                    <ul className="space-y-1 text-sm text-gray-600">
-                      <li>• Продається будинок, 32.4 м², ₴628 500</li>
-                      <li>• Продається будинок, 66.6 м², ₴628 500</li>
-                    </ul>
-                    <p className="mt-3 text-blue-600 font-medium">
-                      Інші <strong>{city.count}</strong> пропозицій
-                    </p>
-                  </div>
+                <Image
+                  src={city.img}
+                  alt={`Нерухомість у місті ${city.name}`}
+                  width={400}
+                  height={200}
+                  className="w-full h-48 object-cover rounded-t-lg"
+                  loading="lazy"
+                />
+                <div className="p-4 border-l-4 border-blue-500 bg-gray-50 rounded-b-lg">
+                  <h3 className="font-semibold text-lg text-gray-800 mb-2">Нерухомість у місті {city.name}</h3>
+                  <p className="text-blue-600 font-medium">
+                    Інші <strong>{city.count}</strong> пропозицій
+                  </p>
                 </div>
               </Link>
             ))}
@@ -53,36 +55,37 @@ export default function Home() {
         </section>
 
         {/* --- Міста районного значення --- */}
-        <section className="mb-12">
+        <section>
           <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
             Нерухомість в містах районного значення
           </h2>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
-              { slug: 'dolyna', name: 'Долина', count: 33, img: 'https://www.realestate.if.ua/assets/images/locations/dolyna.jpg' },
-              { slug: 'halych', name: 'Галич', count: 21, img: 'https://www.realestate.if.ua/assets/images/locations/halych.jpg' },
-              { slug: 'horodenka', name: 'Городенка', count: 25, img: 'https://www.realestate.if.ua/assets/images/locations/horodenka.jpg' },
-              { slug: 'kosiv', name: 'Косів', count: 25, img: 'https://www.realestate.if.ua/assets/images/locations/kosiv.jpg' },
-              { slug: 'nadvirna', name: 'Надвірна', count: 37, img: 'https://www.realestate.if.ua/assets/images/locations/nadvirna.jpg' },
-              { slug: 'rohatyn', name: 'Рогатин', count: 21, img: 'https://www.realestate.if.ua/assets/images/locations/rohatyn.jpg' },
-              { slug: 'sniatyn', name: 'Снятин', count: 41, img: 'https://www.realestate.if.ua/assets/images/locations/sniatyn.jpg' },
-              { slug: 'tlumach', name: 'Тлумач', count: 16, img: 'https://www.realestate.if.ua/assets/images/locations/tlumach.jpg' },
-              { slug: 'tysmenytsya', name: 'Тисмениця', count: 29, img: 'https://www.realestate.if.ua/assets/images/locations/tysmenytsya.jpg' }
+              { slug: 'dolyna', name: 'Долина', img: 'https://www.realestate.if.ua/assets/images/locations/dolyna.jpg', count: 33 },
+              { slug: 'halych', name: 'Галич', img: 'https://www.realestate.if.ua/assets/images/locations/halych.jpg', count: 21 },
+              { slug: 'horodenka', name: 'Городенка', img: 'https://www.realestate.if.ua/assets/images/locations/horodenka.jpg', count: 25 },
+              { slug: 'kosiv', name: 'Косів', img: 'https://www.realestate.if.ua/assets/images/locations/kosiv.jpg', count: 25 },
+              { slug: 'nadvirna', name: 'Надвірна', img: 'https://www.realestate.if.ua/assets/images/locations/nadvirna.jpg', count: 37 },
+              { slug: 'rohatyn', name: 'Рогатин', img: 'https://www.realestate.if.ua/assets/images/locations/rohatyn.jpg', count: 21 },
+              { slug: 'sniatyn', name: 'Снятин', img: 'https://www.realestate.if.ua/assets/images/locations/sniatyn.jpg', count: 41 },
+              { slug: 'tlumach', name: 'Тлумач', img: 'https://www.realestate.if.ua/assets/images/locations/tlumach.jpg', count: 16 },
+              { slug: 'tysmenytsya', name: 'Тисмениця', img: 'https://www.realestate.if.ua/assets/images/locations/tysmenytsya.jpg', count: 29 }
             ].map((town) => (
               <Link key={town.slug} href="/district/town/" className="block">
-                <div className="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 overflow-hidden">
-                  <Image src={town.img} width={400} height={300}alt={`Нерухомість у місті ${town.name}`} className="w-full h-48 object-cover rounded-t-lg" priority={false} />
-                  <div className="p-4">
-                    <h3 className="font-semibold text-lg text-gray-800 mb-3">Нерухомість у місті {town.name}</h3>
-                    <ul className="space-y-1 text-sm text-gray-600">
-                      <li>• Продається квартира, 45.4 м², ₴1 801 700</li>
-                      <li>• Продається будинок, 590 м², ₴25 140 000</li>
-                    </ul>
-                    <p className="mt-3 text-blue-600 font-medium">
-                      Інші <strong>{town.count}</strong> пропозицій
-                    </p>
-                  </div>
+                <Image
+                  src={town.img}
+                  alt={`Нерухомість у місті ${town.name}`}
+                  width={400}
+                  height={200}
+                  className="w-full h-48 object-cover rounded-t-lg"
+                  loading="lazy"
+                />
+                <div className="p-4 border-l-4 border-green-500 bg-gray-50 rounded-b-lg">
+                  <h3 className="font-semibold text-lg text-gray-800 mb-2">Нерухомість у місті {town.name}</h3>
+                  <p className="text-blue-600 font-medium">
+                    Інші <strong>{town.count}</strong> пропозицій
+                  </p>
                 </div>
               </Link>
             ))}
@@ -95,23 +98,29 @@ export default function Home() {
             Нерухомість в районах Івано-Франківської області
           </h2>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
-              'Івано-Франківський',
-              'Коломийський',
-              'Калуський',
-              'Косівський',
-              'Надвірнянський',
-              'Верховинський',
-              'Городенківський',
-              'Рожнятівський',
-              'Тлумацький',
-              'Долинський',
-              'Снятинський'
-            ].map((district) => (
-              <Link key={district} href={`/district/${district.toLowerCase().replace('ій', 'yy')}/`} className="block">
-                <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow duration-200 text-center">
-                  <h3 className="font-medium text-gray-800">Нерухомість у {district} районі</h3>
+              { slug: 'ivano-frankivskyy', name: 'Івано-Франківський район', img: 'https://www.realestate.if.ua/assets/images/locations/ivano-frankivskyy.jpg', count: 75 },
+              { slug: 'kaluskyy', name: 'Калуський район', img: 'https://www.realestate.if.ua/assets/images/locations/kaluskyy.jpg', count: 46 },
+              { slug: 'kolomyyskyy', name: 'Коломийський район', img: 'https://www.realestate.if.ua/assets/images/locations/kolomyyskyy.jpg', count: 86 },
+              { slug: 'kosivskyy', name: 'Косівський район', img: 'https://www.realestate.if.ua/assets/images/locations/kosivskyy.jpg', count: 20 },
+              { slug: 'nadvirnyanskyy', name: 'Надвірнянський район', img: 'https://www.realestate.if.ua/assets/images/locations/nadvirnyanskyy.jpg', count: 37 },
+              { slug: 'verkhovynskyy', name: 'Верховинський район', img: 'https://www.realestate.if.ua/assets/images/locations/verkhovynskyy.jpg', count: 37 }
+            ].map((dist) => (
+              <Link key={dist.slug} href={`/district/${dist.slug}/`} className="block">
+                <Image
+                  src={dist.img}
+                  alt={`Нерухомість у ${dist.name}`}
+                  width={400}
+                  height={200}
+                  className="w-full h-48 object-cover rounded-t-lg"
+                  loading="lazy"
+                />
+                <div className="p-4 border-l-4 border-green-500 bg-gray-50 rounded-b-lg">
+                  <h3 className="font-semibold text-lg text-gray-800 mb-2">{dist.name}</h3>
+                  <p className="text-blue-600 font-medium">
+                    Інші <strong>{dist.count}</strong> пропозицій
+                  </p>
                 </div>
               </Link>
             ))}
