@@ -1,90 +1,74 @@
-// /src/app/district/town/page.tsx
+// /src/app/district/page.tsx
 import Link from 'next/link';
 
-const towns = [
+const districts = [
   {
-    slug: 'dolyna',
-    name: 'Долина',
-    image: 'https://www.realestate.if.ua/assets/images/locations/dolyna.jpg',
-    count: 33,
+    slug: 'ivano-frankivskyy',
+    name: 'Івано-Франківський район',
+    image: 'https://www.realestate.if.ua/assets/images/locations/ivano-frankivskyy.jpg',
+    count: 75,
   },
   {
-    slug: 'halych',
-    name: 'Галич',
-    image: 'https://www.realestate.if.ua/assets/images/locations/halych.jpg',
-    count: 21,
+    slug: 'kaluskyy',
+    name: 'Калуський район',
+    image: 'https://www.realestate.if.ua/assets/images/locations/kaluskyy.jpg',
+    count: 46,
   },
   {
-    slug: 'horodenka',
-    name: 'Городенка',
-    image: 'https://www.realestate.if.ua/assets/images/locations/horodenka.jpg',
-    count: 25,
+    slug: 'kolomyyskyy',
+    name: 'Коломийський район',
+    image: 'https://www.realestate.if.ua/assets/images/locations/kolomyyskyy.jpg',
+    count: 86,
   },
   {
-    slug: 'kosiv',
-    name: 'Косів',
-    image: 'https://www.realestate.if.ua/assets/images/locations/kosiv.jpg',
-    count: 25,
+    slug: 'kosivskyy',
+    name: 'Косівський район',
+    image: 'https://www.realestate.if.ua/assets/images/locations/kosivskyy.jpg',
+    count: 20,
   },
   {
-    slug: 'nadvirna',
-    name: 'Надвірна',
-    image: 'https://www.realestate.if.ua/assets/images/locations/nadvirna.jpg',
+    slug: 'nadvirnyanskyy',
+    name: 'Надвірнянський район',
+    image: 'https://www.realestate.if.ua/assets/images/locations/nadvirnyanskyy.jpg',
     count: 37,
   },
   {
-    slug: 'rohatyn',
-    name: 'Рогатин',
-    image: 'https://www.realestate.if.ua/assets/images/locations/rohatyn.jpg',
-    count: 21,
-  },
-  {
-    slug: 'sniatyn',
-    name: 'Снятин',
-    image: 'https://www.realestate.if.ua/assets/images/locations/sniatyn.jpg',
-    count: 41,
-  },
-  {
-    slug: 'tlumach',
-    name: 'Тлумач',
-    image: 'https://www.realestate.if.ua/assets/images/locations/tlumach.jpg',
-    count: 16,
-  },
-  {
-    slug: 'tysmenytsya',
-    name: 'Тисмениця',
-    image: 'https://www.realestate.if.ua/assets/images/locations/tysmenytsya.jpg',
-    count: 29,
+    slug: 'verkhovynskyy',
+    name: 'Верховинський район',
+    image: 'https://www.realestate.if.ua/assets/images/locations/verkhovynskyy.jpg',
+    count: 37,
   },
 ];
 
-export default function DistrictTownPage() {
+export default function DistrictPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Заголовок */}
       <header className="bg-gradient-to-r from-green-50 to-emerald-100 py-12 px-6 text-center">
         <h1 className="text-3xl font-bold text-gray-800">
-          Нерухомість в містах районного значення
+          Нерухомість в районах Івано-Франківської області
         </h1>
         <p className="mt-4 text-gray-600">
-          Оберіть місто районного значення, щоб переглянути доступні пропозиції
+          Оберіть район, щоб переглянути доступні пропозиції
         </p>
       </header>
 
-      {/* Список міст */}
+      {/* Список районів */}
       <main className="py-10 px-6 max-w-7xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {towns.map((town) => (
-          <Link key={town.slug} href={`/town/${town.slug}/`} className="block">
-            <img
-              src={town.image}
-              alt={`Нерухомість у місті ${town.name}`}
-              className="w-full h-48 object-cover rounded-t-lg"
-            />
-            <div className="p-4 border-l-4 border-green-500 bg-gray-50 rounded-b-lg">
-              <h3 className="font-semibold text-lg text-gray-800 mb-2">{town.name}</h3>
-              <p className="text-blue-600 font-medium">
-                Інші <strong>{town.count}</strong> пропозицій
-              </p>
+        {districts.map((dist) => (
+          <Link key={dist.slug} href={`/district/${dist.slug}/`} className="block">
+            <div className="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 overflow-hidden">
+              <img
+                src={dist.image}
+                alt={`Нерухомість у ${dist.name}`}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="font-semibold text-lg text-gray-800 mb-3">{dist.name}</h3>
+                <p className="text-blue-600 font-medium">
+                  Інші <strong>{dist.count}</strong> пропозицій
+                </p>
+              </div>
             </div>
           </Link>
         ))}
