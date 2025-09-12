@@ -4,10 +4,9 @@ import Image from 'next/image';
 
 // Дані про райони Івано-Франківської області
 const districtsData = {
-  ivanoFrankivskyy: {
+  'ivano-frankivskyy': {
     name: 'Івано-Франківський район',
     image: 'https://www.realestate.if.ua/assets/images/locations/ivano-frankivskyy.jpg',
-    slugUrl: 'ivano-frankivskyy',
     listings: [
       'Об\'єкт купівлі-продажу - Будинок, ціна $8800, Івано-Франківський район',
       'Продаж будинку площею 25 м², одна кімната, один поверх, с. Жураки, вул. Зелена, 21, ціна 368 720 ₴',
@@ -17,10 +16,9 @@ const districtsData = {
     ],
     count: 75,
   },
-  kaluskyy: {
+  'kaluskyy': {
     name: 'Калуський район',
     image: 'https://www.realestate.if.ua/assets/images/locations/kaluskyy.jpg',
-    slugUrl: 'kaluskyy',
     listings: [
       'Об\'єкт купівлі-продажу - Будинок, ціна $25000, Калуський район',
       'Продаю будинок площею 76.6 м², три кімнати, с. Вільхівка, вул. Шкільна, 5, ціна 1 047 500 ₴',
@@ -29,10 +27,9 @@ const districtsData = {
     ],
     count: 46,
   },
-  kolomyyskyy: {
+  'kolomyyskyy': {
     name: 'Коломийський район',
     image: 'https://www.realestate.if.ua/assets/images/locations/kolomyyskyy.jpg',
-    slugUrl: 'kolomyyskyy',
     listings: [
       'Об\'єкт купівлі-продажу - Будинок, ціна $39900, Коломийський район',
       'Продаю будинок площею 210 м², п’ять кімнат, с.м.т. Заболотів, вул. Нова, 15, ціна 1 671 810 ₴',
@@ -40,10 +37,9 @@ const districtsData = {
     ],
     count: 86,
   },
-  kosivskyy: {
+  'kosivskyy': {
     name: 'Косівський район',
     image: 'https://www.realestate.if.ua/assets/images/locations/kosivskyy.jpg',
-    slugUrl: 'kosivskyy',
     listings: [
       'Об\'єкт купівлі-продажу - Будинок, ціна $35000, Косівський район',
       'Продаю будинок площею 120 м², чотири кімнати, с. Косів, вул. Тараса Шевченка, 15, ціна 1 854 800 ₴',
@@ -51,10 +47,9 @@ const districtsData = {
     ],
     count: 20,
   },
-  nadvirnyanskyy: {
+  'nadvirnyanskyy': {
     name: 'Надвірнянський район',
     image: 'https://www.realestate.if.ua/assets/images/locations/nadvirnyanskyy.jpg',
-    slugUrl: 'nadvirnyanskyy',
     listings: [
       'Об\'єкт купівлі-продажу - Будинок, ціна $48000, Надвірнянський район',
       'Продаються квартири у м. Надвірна, вул. Ольги Кобилянської, 27, ціна від 3 980 500 ₴',
@@ -62,10 +57,9 @@ const districtsData = {
     ],
     count: 37,
   },
-  verkhovynskyy: {
+  'verkhovynskyy': {
     name: 'Верховинський район',
     image: 'https://www.realestate.if.ua/assets/images/locations/verkhovynskyy.jpg',
-    slugUrl: 'verkhovynskyy',
     listings: [
       'Об\'єкт купівлі-продажу - Будинок, ціна $1400000, Верховинський район',
       'Продаж будинку площею 1500 м², 27 кімнат, с. Верхній Ясенів, присілок Печіще, 7, ціна 58 660 000 ₴',
@@ -75,13 +69,11 @@ const districtsData = {
   },
 } as const;
 
-// Тип для ключів об'єкта
 type DistrictSlug = keyof typeof districtsData;
 
 export default function DistrictPage({ params }: { params: { slug: string } }) {
-  // Приведення типу для TypeScript
-  const districtKey = params.slug.replace(/-/g, '') as DistrictSlug;
-  const district = districtsData[districtKey];
+  const slug = params.slug as DistrictSlug;
+  const district = districtsData[slug];
 
   if (!district) {
     notFound();
@@ -102,7 +94,7 @@ export default function DistrictPage({ params }: { params: { slug: string } }) {
       {/* Основний контент */}
       <main className="py-10 px-6 max-w-4xl mx-auto space-y-8">
         {district.listings.map((listing, i) => (
-          <div key={i} className="border-l-4 border-green-500 pl-4 py-2 bg-gray-50 rounded-r-lg shadow-sm">
+          <div key={i} className="border-l-4 border-green-500 pl-4 py-2 bg-gray-50 rounded-r-lg">
             <p className="text-gray-800 leading-relaxed text-sm md:text-base">{listing}</p>
           </div>
         ))}
