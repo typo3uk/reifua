@@ -22,7 +22,12 @@ export default function Home() {
         {/* --- Міста обласного значення --- */}
         <section>
           <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
-            Нерухомість в містах обласного значення
+            <Link 
+              href="/region/city/" 
+              className="hover:underline hover:text-blue-700 transition-colors"
+            >
+              Нерухомість в містах обласного значення
+            </Link>
           </h2>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -57,7 +62,12 @@ export default function Home() {
         {/* --- Міста районного значення --- */}
         <section>
           <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
-            Нерухомість в містах районного значення
+            <Link 
+              href="/district/town/" 
+              className="hover:underline hover:text-green-700 transition-colors"
+            >
+              Нерухомість в містах районного значення
+            </Link>
           </h2>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -95,7 +105,12 @@ export default function Home() {
         {/* --- Райони області --- */}
         <section>
           <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
-            Нерухомість в районах Івано-Франківської області
+            <Link 
+              href="/district/" 
+              className="hover:underline hover:text-green-700 transition-colors"
+            >
+              Нерухомість в районах Івано-Франківської області
+            </Link>
           </h2>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
