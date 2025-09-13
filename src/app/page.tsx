@@ -1,7 +1,8 @@
 // /src/app/page.tsx
-import LocationListTemplate, { LocationData } from '@/components/LocationListTemplate';
+import LocationSection from '@/components/LocationSection';
+import type { LocationData } from '@/components/LocationSection';
 
-const citiesRegional = [
+const citiesRegional: LocationData[] = [
   {
     slug: 'bolekhiv',
     name: 'Болехів',
@@ -46,7 +47,7 @@ const citiesRegional = [
   },
 ];
 
-const townsDistrict = [
+const townsDistrict: LocationData[] = [
   {
     slug: 'dolyna',
     name: 'Долина',
@@ -112,7 +113,7 @@ const townsDistrict = [
   },
 ];
 
-const districts = [
+const districts: LocationData[] = [
   {
     slug: 'ivano-frankivskyy',
     name: 'Івано-Франківський район',
@@ -159,27 +160,47 @@ const districts = [
 
 export default function Home() {
   return (
-    <div className="space-y-16">
-      <LocationListTemplate
+    <div className="min-h-screen bg-gray-50 py-12 px-4 max-w-7xl mx-auto space-y-16">
+      {/* Заголовок */}
+      <header className="text-center">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-800 leading-tight">
+          Оголошення про продаж і оренду нерухомого майна
+          <br />
+          <span className="text-blue-600">в містах та районах Івано-Франківської області</span>
+        </h1>
+        <p className="mt-4 text-gray-600">
+          Виберіть місцевість, де б ви хотіли знайти, купити чи продати нерухомість
+        </p>
+      </header>
+
+      {/* Секція 1: Міста обласного значення */}
+      <LocationSection
         title="Нерухомість в містах обласного значення"
         description="Оберіть місто, щоб переглянути доступні пропозиції"
         locations={citiesRegional}
         baseUrl="/region/city"
       />
 
-      <LocationListTemplate
+      {/* Секція 2: Міста районного значення */}
+      <LocationSection
         title="Нерухомість в містах районного значення"
         description="Оберіть місто, щоб переглянути доступні пропозиції"
         locations={townsDistrict}
         baseUrl="/district/town"
       />
 
-      <LocationListTemplate
+      {/* Секція 3: Райони області */}
+      <LocationSection
         title="Нерухомість в районах Івано-Франківської області"
         description="Оберіть район, щоб переглянути доступні пропозиції"
         locations={districts}
         baseUrl="/district"
       />
+
+      {/* Підвал */}
+      <footer className="bg-gray-800 text-white py-6 text-center text-sm rounded-t-lg mt-16">
+        &copy; {new Date().getFullYear()} reifua.vercel.app — Нерухомість у Івано-Франківській області
+      </footer>
     </div>
   );
 }
