@@ -163,7 +163,7 @@ const districts: LocationData[] = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 max-w-7xl mx-auto space-y-16">
+    <div className="min-h-screen bg-gray-50">
       {/* Заголовок */}
       <header className="text-center">
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800 leading-tight">
