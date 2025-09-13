@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from 'next/link'; // ← Додано обов’язковий імпорт
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -122,6 +123,7 @@ export default function RootLayout({
             </nav>
           </div>
         </header>
+
         {/* Основний контент */}
         <main>{children}</main>
       </body>
