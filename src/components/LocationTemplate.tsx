@@ -1,5 +1,6 @@
 // /src/components/LocationTemplate.tsx
 import Link from 'next/link';
+import LocationBlock from './LocationBlock'; // Імпортуємо LocationBlock
 
 type Listing = {
   id: string;
@@ -28,7 +29,7 @@ type LayoutTemplateProps = {
   sections: LayoutSection[];
 };
 
-export default function LayoutTemplate({ title, description, sections }: LayoutTemplateProps) {
+export default function LocationTemplate({ title, description, sections }: LayoutTemplateProps) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Заголовок сторінки */}
@@ -55,25 +56,15 @@ export default function LayoutTemplate({ title, description, sections }: LayoutT
             )}
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {section.locations.map((loc) => (
-                <Link key={loc.slug} href={`${section.baseUrl}/${loc.slug}/`} className="block">
-                  <div className="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 overflow-hidden">
-                    <img
-                      src={loc.image}
-                      alt={`Нерухомість у ${loc.name}`}
-                      width={400}
-                      height={200}
-                      className="w-full h-48 object-cover"
-                    />
-                    <h3 className="font-semibold text-lg text-gray-800 p-4 border-b bg-gray-50">
-                      Нерухомість у {loc.name}
-                    </h3>
-                    <div className="p-4 pt-0">
-                      <p className="text-blue-600 font-medium text-sm">
-                        Інші <strong>{loc.totalCount}</strong> пропозицій
-                      </p>
-                    </div>
-                  </div>
-                </Link>
+                <LocationBlock
+                  key={loc.slug}
+                  slug={loc.slug}
+                  name={loc.name}
+                  image={loc.image}
+                  listings={loc.listings}
+                  totalCount={loc.totalCount}
+                  baseUrl={section.baseUrl}
+                />
               ))}
             </div>
           </section>
