@@ -73,7 +73,7 @@ export default function RegionCityPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white py-12 px-4 max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gray-50 py-12 px-4 max-w-7xl mx-auto">
       {/* Заголовок */}
       <header className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
