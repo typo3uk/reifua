@@ -159,9 +159,9 @@ export default function RegionPage() {
         {/* --- Міста обласного значення --- */}
         <section>
           <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
-            <a href="/region/city/" className="hover:underline hover:text-blue-700 transition-colors">
+            <Link href="/region/city/" className="hover:underline hover:text-blue-700 transition-colors">
               Нерухомість в містах обласного значення
-            </a>
+            </Link>
           </h2>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
