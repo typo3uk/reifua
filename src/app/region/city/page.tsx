@@ -1,6 +1,5 @@
 // /src/app/region/city/page.tsx
-import Link from 'next/link';
-import LocationBlock from '@/components/LocationBlock';
+import LocationTemplate, { LocationData } from '@/components/LocationTemplate';
 
 const citiesRegional: LocationData[] = [
   {
