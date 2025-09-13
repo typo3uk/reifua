@@ -74,12 +74,12 @@ export default function RegionCityPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 max-w-7xl mx-auto">
-      {/* Заголовок */}
+      {/* Заголовок сторінки */}
       <header className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
           Нерухомість в містах обласного значення
         </h1>
-        <p className="mt-4 text-gray-600">
+        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
           Оберіть місто, щоб переглянути доступні пропозиції
         </p>
       </header>
