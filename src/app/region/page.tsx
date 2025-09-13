@@ -1,5 +1,5 @@
 // /src/app/region/page.tsx
-iimport LocationTemplate, { LocationData } from '@/components/LocationTemplate';
+import LocationTemplate, { LocationData } from '@/components/LocationTemplate';
 
 // --- Міста обласного значення ---
 const citiesRegional: LocationData[] = [
@@ -141,30 +141,23 @@ const districts: LocationData[] = [
   },
 ];
 
-export default function Home() {
-  const sections = [
-    {
-      title: 'Нерухомість в містах обласного значення',
-      locations: citiesRegional,
-      baseUrl: '/region/city',
-    },
-    {
-      title: 'Нерухомість в містах районного значення',
-      locations: townsDistrict,
-      baseUrl: '/district/town',
-    },
-    {
-      title: 'Нерухомість в районах Івано-Франківської області',
-      locations: districts,
-      baseUrl: '/district',
-    },
-  ];
-
+export default function RegionPage() {
   return (
     <LocationTemplate
-      title="Оголошення про продаж і оренду нерухомого майна"
-      description="в містах та районах Івано-Франківської області"
-      sections={sections}
+      title="Нерухомість в містах та районах Івано-Франківської області"
+      description="Оберіть місцевість для перегляду пропозицій"
+      sections={[
+        {
+          title: 'Нерухомість в містах обласного значення',
+          locations: citiesRegional,
+          baseUrl: '/region/city',
+        },
+        {
+          title: 'Нерухомість в районах Івано-Франківської області',
+          locations: districts,
+          baseUrl: '/district',
+        },
+      ]}
     />
   );
 }
