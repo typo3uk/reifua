@@ -1,214 +1,170 @@
 // /src/app/region/page.tsx
-import Link from 'next/link';
-import LocationBlock from '@/components/LocationBlock';
+iimport LocationTemplate, { LocationData } from '@/components/LocationTemplate';
 
-export default function RegionPage() {
-  // --- Міста обласного значення ---
-  const cities = [
-    {
-      slug: 'bolekhiv',
-      name: 'Болехів',
-      image: 'https://www.realestate.if.ua/assets/images/locations/bolekhiv.jpg',
-      listings: [
-        { id: 'c1', title: 'Продається будинок 32.4 м², ₴628 500', href: '/region/city/bolekhiv/' },
-        { id: 'c2', title: 'Продається будинок 66.6 м², ₴628 500', href: '/region/city/bolekhiv/' },
-        { id: 'c3', title: 'Нежитлове приміщення, $150000', href: '/region/city/bolekhiv/' },
-      ],
-      totalCount: 19,
-    },
-    {
-      slug: 'burshtyn',
-      name: 'Бурштин',
-      image: 'https://www.realestate.if.ua/assets/images/locations/burshtyn.jpg',
-      listings: [
-        { id: 'b1', title: 'Продаж будинку 112 м², ₴921 800', href: '/region/city/burshtyn/' },
-        { id: 'b2', title: 'Квартира 87 м², ₴1 759 800', href: '/region/city/burshtyn/' },
-        { id: 'b3', title: 'Об\'єкт купівлі-продажу - Будинок, $79000', href: '/region/city/burshtyn/' },
-      ],
-      totalCount: 26,
-    },
-    {
-      slug: 'ivano-frankivsk',
-      name: 'Івано-Франківськ',
-      image: 'https://www.realestate.if.ua/assets/images/locations/ivano-frankivsk.jpg',
-      listings: [
-        { id: 'i1', title: 'Квартира 45.4 м², ₴1 801 700', href: '/region/city/ivano-frankivsk/' },
-        { id: 'i2', title: 'Будинок 590 м², ₴25 140 000', href: '/region/city/ivano-frankivsk/' },
-        { id: 'i3', title: 'Об\'єкт купівлі-продажу - Квартира, $45000', href: '/region/city/ivano-frankivsk/' },
-      ],
-      totalCount: 483,
-    },
-    {
-      slug: 'kalush',
-      name: 'Калуш',
-      image: 'https://www.realestate.if.ua/assets/images/locations/kalush.jpg',
-      listings: [
-        { id: 'k1', title: 'Будинок 119 м², ₴3 310 100', href: '/region/city/kalush/' },
-        { id: 'k2', title: 'Будинок 147 м², ₴1 257 000', href: '/region/city/kalush/' },
-        { id: 'k3', title: 'Об\'єкт купівлі-продажу - Будинок, $85000', href: '/region/city/kalush/' },
-      ],
-      totalCount: 61,
-    },
-    {
-      slug: 'kolomyia',
-      name: 'Коломия',
-      image: 'https://www.realestate.if.ua/assets/images/locations/kolomyia.jpg',
-      listings: [
-        { id: 'o1', title: 'Будинок 122 м², ₴5 447 000', href: '/region/city/kolomyia/' },
-        { id: 'o2', title: 'Квартира 81 м², ₴2 095 000', href: '/region/city/kolomyia/' },
-        { id: 'o3', title: 'Об\'єкт купівлі-продажу - Будинок, $135000', href: '/region/city/kolomyia/' },
-      ],
-      totalCount: 86,
-    },
-    {
-      slug: 'yaremche',
-      name: 'Яремче',
-      image: 'https://www.realestate.if.ua/assets/images/locations/yaremche.jpg',
-      listings: [
-        { id: 'y1', title: 'Земельна ділянка 1191 м², ₴3 992 232', href: '/region/city/yaremche/' },
-        { id: 'y2', title: 'Будинок 90 м², ₴6 704 000', href: '/region/city/yaremche/' },
-        { id: 'y3', title: 'Об\'єкт купівлі-продажу - Земельна ділянка, $95000', href: '/region/city/yaremche/' },
-      ],
-      totalCount: 37,
-    },
-  ];
+// --- Міста обласного значення ---
+const citiesRegional: LocationData[] = [
+  {
+    slug: 'bolekhiv',
+    name: 'Болехів',
+    image: 'https://www.realestate.if.ua/assets/images/locations/bolekhiv.jpg',
+    listings: [
+      { id: 'c1', title: 'Продається будинок 32.4 м², ₴628 500', href: '/region/city/bolekhiv/' },
+      { id: 'c2', title: 'Продається будинок 66.6 м², ₴628 500', href: '/region/city/bolekhiv/' },
+      { id: 'c3', title: 'Нежитлове приміщення, $150000', href: '/region/city/bolekhiv/' },
+    ],
+    totalCount: 19,
+  },
+  {
+    slug: 'burshtyn',
+    name: 'Бурштин',
+    image: 'https://www.realestate.if.ua/assets/images/locations/burshtyn.jpg',
+    listings: [
+      { id: 'b1', title: 'Продаж будинку 112 м², ₴921 800', href: '/region/city/burshtyn/' },
+      { id: 'b2', title: 'Квартира 87 м², ₴1 759 800', href: '/region/city/burshtyn/' },
+      { id: 'b3', title: 'Об\'єкт купівлі-продажу - Будинок, $79000', href: '/region/city/burshtyn/' },
+    ],
+    totalCount: 26,
+  },
+  {
+    slug: 'ivano-frankivsk',
+    name: 'Івано-Франківськ',
+    image: 'https://www.realestate.if.ua/assets/images/locations/ivano-frankivsk.jpg',
+    listings: [
+      { id: 'i1', title: 'Квартира 45.4 м², ₴1 801 700', href: '/region/city/ivano-frankivsk/' },
+      { id: 'i2', title: 'Будинок 590 м², ₴25 140 000', href: '/region/city/ivano-frankivsk/' },
+      { id: 'i3', title: 'Об\'єкт купівлі-продажу - Квартира, $45000', href: '/region/city/ivano-frankivsk/' },
+    ],
+    totalCount: 483,
+  },
+  {
+    slug: 'kalush',
+    name: 'Калуш',
+    image: 'https://www.realestate.if.ua/assets/images/locations/kalush.jpg',
+    listings: [
+      { id: 'k1', title: 'Будинок 119 м², ₴3 310 100', href: '/region/city/kalush/' },
+      { id: 'k2', title: 'Будинок 147 м², ₴1 257 000', href: '/region/city/kalush/' },
+      { id: 'k3', title: 'Об\'єкт купівлі-продажу - Будинок, $85000', href: '/region/city/kalush/' },
+    ],
+    totalCount: 61,
+  },
+  {
+    slug: 'kolomyia',
+    name: 'Коломия',
+    image: 'https://www.realestate.if.ua/assets/images/locations/kolomyia.jpg',
+    listings: [
+      { id: 'o1', title: 'Будинок 122 м², ₴5 447 000', href: '/region/city/kolomyia/' },
+      { id: 'o2', title: 'Квартира 81 м², ₴2 095 000', href: '/region/city/kolomyia/' },
+      { id: 'o3', title: 'Об\'єкт купівлі-продажу - Будинок, $135000', href: '/region/city/kolomyia/' },
+    ],
+    totalCount: 86,
+  },
+  {
+    slug: 'yaremche',
+    name: 'Яремче',
+    image: 'https://www.realestate.if.ua/assets/images/locations/yaremche.jpg',
+    listings: [
+      { id: 'y1', title: 'Земельна ділянка 1191 м², ₴3 992 232', href: '/region/city/yaremche/' },
+      { id: 'y2', title: 'Будинок 90 м², ₴6 704 000', href: '/region/city/yaremche/' },
+      { id: 'y3', title: 'Об\'єкт купівлі-продажу - Земельна ділянка, $95000', href: '/region/city/yaremche/' },
+    ],
+    totalCount: 37,
+  },
+];
 
-  // --- Райони області ---
-  const districts = [
+// --- Райони області ---
+const districts: LocationData[] = [
+  {
+    slug: 'ivano-frankivskyy',
+    name: 'Івано-Франківський район',
+    image: 'https://www.realestate.if.ua/assets/images/locations/ivano-frankivskyy.jpg',
+    listings: [
+      { id: 'f1', title: 'Будинок 25 м², ₴368 720', href: '/district/ivano-frankivskyy/' },
+      { id: 'f2', title: 'Квартира 49.1 м², ₴1 550 300', href: '/district/ivano-frankivskyy/' },
+      { id: 'f3', title: 'Частина будинку 117 м², ₴2 136 900', href: '/district/ivano-frankivskyy/' },
+    ],
+    totalCount: 75,
+  },
+  {
+    slug: 'kaluskyy',
+    name: 'Калуський район',
+    image: 'https://www.realestate.if.ua/assets/images/locations/kaluskyy.jpg',
+    listings: [
+      { id: 'l1', title: 'Будинок 76.6 м², ₴1 047 500', href: '/district/kaluskyy/' },
+      { id: 'l2', title: 'Будинок 150 м², ₴1 965 110', href: '/district/kaluskyy/' },
+      { id: 'l3', title: 'Будинок 212 м², ₴2 349 200', href: '/district/kaluskyy/' },
+    ],
+    totalCount: 46,
+  },
+  {
+    slug: 'kolomyyskyy',
+    name: 'Коломийський район',
+    image: 'https://www.realestate.if.ua/assets/images/locations/kolomyyskyy.jpg',
+    listings: [
+      { id: 'm1', title: 'Будинок 210 м², ₴1 671 810', href: '/district/kolomyyskyy/' },
+      { id: 'm2', title: 'Будинок 78 м², ₴1 257 000', href: '/district/kolomyyskyy/' },
+      { id: 'm3', title: 'Об\'єкт купівлі-продажу - Будинок, $39900', href: '/district/kolomyyskyy/' },
+    ],
+    totalCount: 86,
+  },
+  {
+    slug: 'kosivskyy',
+    name: 'Косівський район',
+    image: 'https://www.realestate.if.ua/assets/images/locations/kosivskyy.jpg',
+    listings: [
+      { id: 's1', title: 'Будинок 120 м², ₴1 854 800', href: '/district/kosivskyy/' },
+      { id: 's2', title: 'Квартира 60 м², ₴1 258 000', href: '/district/kosivskyy/' },
+      { id: 's3', title: 'Об\'єкт купівлі-продажу - Будинок, $35000', href: '/district/kosivskyy/' },
+    ],
+    totalCount: 20,
+  },
+  {
+    slug: 'nadvirnyanskyy',
+    name: 'Надвірнянський район',
+    image: 'https://www.realestate.if.ua/assets/images/locations/nadvirnyanskyy.jpg',
+    listings: [
+      { id: 'n1', title: 'Будинок 134 м², ₴2 011 200', href: '/district/nadvirnyanskyy/' },
+      { id: 'n2', title: 'Квартири від ₴3 980 500', href: '/district/nadvirnyanskyy/' },
+      { id: 'n3', title: 'Об\'єкт купівлі-продажу - Будинок, $48000', href: '/district/nadvirnyanskyy/' },
+    ],
+    totalCount: 37,
+  },
+  {
+    slug: 'verkhovynskyy',
+    name: 'Верховинський район',
+    image: 'https://www.realestate.if.ua/assets/images/locations/verkhovynskyy.jpg',
+    listings: [
+      { id: 'v1', title: 'Будинок 1500 м², ₴58 660 000', href: '/district/verkhovynskyy/' },
+      { id: 'v2', title: 'Нежитлове приміщення 195 м², ₴1 131 300', href: '/district/verkhovynskyy/' },
+      { id: 'v3', title: 'Об\'єкт купівлі-продажу - Будинок, $1400000', href: '/district/verkhovynskyy/' },
+    ],
+    totalCount: 37,
+  },
+];
+
+export default function Home() {
+  const sections = [
     {
-      slug: 'ivano-frankivskyy',
-      name: 'Івано-Франківський район',
-      image: 'https://www.realestate.if.ua/assets/images/locations/ivano-frankivskyy.jpg',
-      listings: [
-        { id: 'f1', title: 'Будинок 25 м², ₴368 720', href: '/district/ivano-frankivskyy/' },
-        { id: 'f2', title: 'Квартира 49.1 м², ₴1 550 300', href: '/district/ivano-frankivskyy/' },
-        { id: 'f3', title: 'Частина будинку 117 м², ₴2 136 900', href: '/district/ivano-frankivskyy/' },
-      ],
-      totalCount: 75,
+      title: 'Нерухомість в містах обласного значення',
+      locations: citiesRegional,
+      baseUrl: '/region/city',
     },
     {
-      slug: 'kaluskyy',
-      name: 'Калуський район',
-      image: 'https://www.realestate.if.ua/assets/images/locations/kaluskyy.jpg',
-      listings: [
-        { id: 'l1', title: 'Будинок 76.6 м², ₴1 047 500', href: '/district/kaluskyy/' },
-        { id: 'l2', title: 'Будинок 150 м², ₴1 965 110', href: '/district/kaluskyy/' },
-        { id: 'l3', title: 'Будинок 212 м², ₴2 349 200', href: '/district/kaluskyy/' },
-      ],
-      totalCount: 46,
+      title: 'Нерухомість в містах районного значення',
+      locations: townsDistrict,
+      baseUrl: '/district/town',
     },
     {
-      slug: 'kolomyyskyy',
-      name: 'Коломийський район',
-      image: 'https://www.realestate.if.ua/assets/images/locations/kolomyyskyy.jpg',
-      listings: [
-        { id: 'm1', title: 'Будинок 210 м², ₴1 671 810', href: '/district/kolomyyskyy/' },
-        { id: 'm2', title: 'Будинок 78 м², ₴1 257 000', href: '/district/kolomyyskyy/' },
-        { id: 'm3', title: 'Об\'єкт купівлі-продажу - Будинок, $39900', href: '/district/kolomyyskyy/' },
-      ],
-      totalCount: 86,
-    },
-    {
-      slug: 'kosivskyy',
-      name: 'Косівський район',
-      image: 'https://www.realestate.if.ua/assets/images/locations/kosivskyy.jpg',
-      listings: [
-        { id: 's1', title: 'Будинок 120 м², ₴1 854 800', href: '/district/kosivskyy/' },
-        { id: 's2', title: 'Квартира 60 м², ₴1 258 000', href: '/district/kosivskyy/' },
-        { id: 's3', title: 'Об\'єкт купівлі-продажу - Будинок, $35000', href: '/district/kosivskyy/' },
-      ],
-      totalCount: 20,
-    },
-    {
-      slug: 'nadvirnyanskyy',
-      name: 'Надвірнянський район',
-      image: 'https://www.realestate.if.ua/assets/images/locations/nadvirnyanskyy.jpg',
-      listings: [
-        { id: 'n1', title: 'Будинок 134 м², ₴2 011 200', href: '/district/nadvirnyanskyy/' },
-        { id: 'n2', title: 'Квартири від ₴3 980 500', href: '/district/nadvirnyanskyy/' },
-        { id: 'n3', title: 'Об\'єкт купівлі-продажу - Будинок, $48000', href: '/district/nadvirnyanskyy/' },
-      ],
-      totalCount: 37,
-    },
-    {
-      slug: 'verkhovynskyy',
-      name: 'Верховинський район',
-      image: 'https://www.realestate.if.ua/assets/images/locations/verkhovynskyy.jpg',
-      listings: [
-        { id: 'v1', title: 'Будинок 1500 м², ₴58 660 000', href: '/district/verkhovynskyy/' },
-        { id: 'v2', title: 'Нежитлове приміщення 195 м², ₴1 131 300', href: '/district/verkhovynskyy/' },
-        { id: 'v3', title: 'Об\'єкт купівлі-продажу - Будинок, $1400000', href: '/district/verkhovynskyy/' },
-      ],
-      totalCount: 37,
+      title: 'Нерухомість в районах Івано-Франківської області',
+      locations: districts,
+      baseUrl: '/district',
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Заголовок */}
-      <header className="bg-white shadow-sm py-8 px-4 text-center">
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-800 leading-tight">
-          Нерухомість в містах та районах Івано-Франківської області
-        </h1>
-        <p className="mt-4 text-gray-600 max-w-3xl mx-auto">
-          Виберіть місцевість, де б ви хотіли знайти, купити чи продати нерухомість
-        </p>
-      </header>
-
-      <div className="py-12 px-4 max-w-7xl mx-auto space-y-16">
-
-        {/* --- Міста обласного значення --- */}
-        <section>
-          <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
-            <Link href="/region/city/" className="hover:underline hover:text-blue-700 transition-colors">
-              Нерухомість в містах обласного значення
-            </Link>
-          </h2>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {cities.map((city) => (
-              <LocationBlock
-                key={city.slug}
-                slug={city.slug}
-                name={city.name}
-                image={city.image}
-                listings={city.listings}
-                totalCount={city.totalCount}
-                baseUrl="/region/city"
-              />
-            ))}
-          </div>
-        </section>
-
-        {/* --- Райони області --- */}
-        <section>
-          <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
-            <Link href="/district/" className="hover:underline hover:text-green-700 transition-colors">
-              Нерухомість в районах Івано-Франківської області
-            </Link>
-          </h2>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {districts.map((dist) => (
-              <LocationBlock
-                key={dist.slug}
-                slug={dist.slug}
-                name={dist.name}
-                image={dist.image}
-                listings={dist.listings}
-                totalCount={dist.totalCount}
-                baseUrl="/district"
-              />
-            ))}
-          </div>
-        </section>
-
-      </div>
-
-      {/* Підвал */}
-      <footer className="bg-gray-800 text-white py-6 text-center text-sm">
-        &copy; {new Date().getFullYear()} reifua.vercel.app — Нерухомість у Івано-Франківській області
-      </footer>
-    </div>
+    <LocationTemplate
+      title="Оголошення про продаж і оренду нерухомого майна"
+      description="в містах та районах Івано-Франківської області"
+      sections={sections}
+    />
   );
 }
