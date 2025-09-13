@@ -23,11 +23,107 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="uk">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {/* Шапка з меню */}
+        <header className="bg-white shadow-sm sticky top-0 z-50">
+          <div className="max-w-7xl mx-auto px-4 py-4">
+            <nav className="flex flex-wrap items-center justify-between gap-4">
+              {/* Логотип/назва */}
+              <div className="font-bold text-xl text-blue-600">
+                <Link href="/" className="hover:underline">
+                  reifua.vercel.app
+                </Link>
+              </div>
+
+              {/* Основне меню */}
+              <ul className="flex flex-wrap gap-x-8 gap-y-2 text-sm md:text-base">
+                <li>
+                  <Link
+                    href="/"
+                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                  >
+                    Головна
+                  </Link>
+                </li>
+
+                <li className="relative group">
+                  <span className="text-gray-700 font-medium cursor-default">Міста обласного значення</span>
+                  <ul className="absolute left-0 mt-2 w-48 bg-white border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-2">
+                    {[
+                      { slug: 'bolekhiv', name: 'Болехів' },
+                      { slug: 'burshtyn', name: 'Бурштин' },
+                      { slug: 'ivano-frankivsk', name: 'Івано-Франківськ' },
+                      { slug: 'kalush', name: 'Калуш' },
+                      { slug: 'kolomyia', name: 'Коломия' },
+                      { slug: 'yaremche', name: 'Яремче' },
+                    ].map((city) => (
+                      <li key={city.slug}>
+                        <Link
+                          href={`/region/city/${city.slug}`}
+                          className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                        >
+                          {city.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+
+                <li className="relative group">
+                  <span className="text-gray-700 font-medium cursor-default">Міста районного значення</span>
+                  <ul className="absolute left-0 mt-2 w-48 bg-white border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-2">
+                    {[
+                      { slug: 'dolyna', name: 'Долина' },
+                      { slug: 'halych', name: 'Галич' },
+                      { slug: 'horodenka', name: 'Городенка' },
+                      { slug: 'kosiv', name: 'Косів' },
+                      { slug: 'nadvirna', name: 'Надвірна' },
+                      { slug: 'rohatyn', name: 'Рогатин' },
+                      { slug: 'sniatyn', name: 'Снятин' },
+                      { slug: 'tlumach', name: 'Тлумач' },
+                      { slug: 'tysmenytsya', name: 'Тисмениця' },
+                    ].map((town) => (
+                      <li key={town.slug}>
+                        <Link
+                          href={`/district/town/${town.slug}`}
+                          className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                        >
+                          {town.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+
+                <li className="relative group">
+                  <span className="text-gray-700 font-medium cursor-default">Райони області</span>
+                  <ul className="absolute left-0 mt-2 w-48 bg-white border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-2">
+                    {[
+                      { slug: 'ivano-frankivskyy', name: 'Івано-Франківський район' },
+                      { slug: 'kaluskyy', name: 'Калуський район' },
+                      { slug: 'kolomyyskyy', name: 'Коломийський район' },
+                      { slug: 'kosivskyy', name: 'Косівський район' },
+                      { slug: 'nadvirnyanskyy', name: 'Надвірнянський район' },
+                      { slug: 'verkhovynskyy', name: 'Верховинський район' },
+                    ].map((dist) => (
+                      <li key={dist.slug}>
+                        <Link
+                          href={`/district/${dist.slug}`}
+                          className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                        >
+                          {dist.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        {/* Основний контент */}
+        <main>{children}</main>
       </body>
     </html>
   );
