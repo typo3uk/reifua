@@ -2,6 +2,7 @@
 import LocationSection from '@/components/LocationSection';
 import type { LocationData } from '@/components/LocationSection';
 
+// --- Міста обласного значення ---
 const citiesRegional: LocationData[] = [
   {
     slug: 'bolekhiv',
@@ -47,6 +48,7 @@ const citiesRegional: LocationData[] = [
   },
 ];
 
+// --- Міста районного значення ---
 const townsDistrict: LocationData[] = [
   {
     slug: 'dolyna',
@@ -113,6 +115,7 @@ const townsDistrict: LocationData[] = [
   },
 ];
 
+// --- Райони області ---
 const districts: LocationData[] = [
   {
     slug: 'ivano-frankivskyy',
@@ -173,7 +176,7 @@ export default function Home() {
         </p>
       </header>
 
-      {/* Секція 1: Міста обласного значення */}
+      {/* Секція: Міста обласного значення */}
       <LocationSection
         title="Нерухомість в містах обласного значення"
         description="Оберіть місто, щоб переглянути доступні пропозиції"
@@ -181,7 +184,7 @@ export default function Home() {
         baseUrl="/region/city"
       />
 
-      {/* Секція 2: Міста районного значення */}
+      {/* Секція: Міста районного значення */}
       <LocationSection
         title="Нерухомість в містах районного значення"
         description="Оберіть місто, щоб переглянути доступні пропозиції"
@@ -189,7 +192,7 @@ export default function Home() {
         baseUrl="/district/town"
       />
 
-      {/* Секція 3: Райони області */}
+      {/* Секція: Райони */}
       <LocationSection
         title="Нерухомість в районах Івано-Франківської області"
         description="Оберіть район, щоб переглянути доступні пропозиції"
