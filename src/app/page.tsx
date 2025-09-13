@@ -244,7 +244,7 @@ const districts: LocationData[] = [
   },
 ];
 
-export default function Home() {
+export default function HomePage() {
   const sections = [
     {
       title: 'Нерухомість в містах обласного значення',
