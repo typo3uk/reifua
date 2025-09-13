@@ -33,13 +33,13 @@ export default function LocationBlock({
       <Link href={pageUrl}>
         <Image
           src={image}
-          alt={`Нерухомість у місті ${name}`}
+          alt={`Нерухомість у ${name}`}
           width={400}
           height={200}
           className="w-full h-48 object-cover"
         />
         <h3 className="font-semibold text-lg text-gray-800 p-4 border-b bg-gray-50">
-          Нерухомість у місті {name}
+          Нерухомість у {name}
         </h3>
       </Link>
 

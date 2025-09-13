@@ -5,7 +5,7 @@ import LocationTemplate, { LocationData } from '@/components/LocationTemplate';
 const citiesRegional: LocationData[] = [
   {
     slug: 'bolekhiv',
-    name: 'Болехів',
+    name: 'місті Болехів',
     image: 'https://www.realestate.if.ua/assets/images/locations/bolekhiv.jpg',
     listings: [
       { id: 'c1', title: 'Продається будинок 32.4 м², ₴628 500', href: '/region/city/bolekhiv/#listing-1' },
@@ -16,7 +16,7 @@ const citiesRegional: LocationData[] = [
   },
   {
     slug: 'burshtyn',
-    name: 'Бурштин',
+    name: 'місті Бурштин',
     image: 'https://www.realestate.if.ua/assets/images/locations/burshtyn.jpg',
     listings: [
       { id: 'b1', title: 'Продаж будинку 112 м², ₴921 800', href: '/region/city/burshtyn/#listing-1' },
@@ -27,7 +27,7 @@ const citiesRegional: LocationData[] = [
   },
   {
     slug: 'ivano-frankivsk',
-    name: 'Івано-Франківськ',
+    name: 'місті Івано-Франківськ',
     image: 'https://www.realestate.if.ua/assets/images/locations/ivano-frankivsk.jpg',
     listings: [
       { id: 'i1', title: 'Квартира 45.4 м², ₴1 801 700', href: '/region/city/ivano-frankivsk/#listing-1' },
@@ -38,7 +38,7 @@ const citiesRegional: LocationData[] = [
   },
   {
     slug: 'kalush',
-    name: 'Калуш',
+    name: 'місті Калуш',
     image: 'https://www.realestate.if.ua/assets/images/locations/kalush.jpg',
     listings: [
       { id: 'k1', title: 'Будинок 119 м², ₴3 310 100', href: '/region/city/kalush/#listing-1' },
@@ -49,7 +49,7 @@ const citiesRegional: LocationData[] = [
   },
   {
     slug: 'kolomyia',
-    name: 'Коломия',
+    name: 'місті Коломия',
     image: 'https://www.realestate.if.ua/assets/images/locations/kolomyia.jpg',
     listings: [
       { id: 'o1', title: 'Будинок 122 м², ₴5 447 000', href: '/region/city/kolomyia/#listing-1' },
@@ -60,7 +60,7 @@ const citiesRegional: LocationData[] = [
   },
   {
     slug: 'yaremche',
-    name: 'Яремче',
+    name: 'місті Яремче',
     image: 'https://www.realestate.if.ua/assets/images/locations/yaremche.jpg',
     listings: [
       { id: 'y1', title: 'Земельна ділянка 1191 м², ₴3 992 232', href: '/region/city/yaremche/#listing-1' },
@@ -75,7 +75,7 @@ const citiesRegional: LocationData[] = [
 const townsDistrict: LocationData[] = [
   {
     slug: 'dolyna',
-    name: 'Долина',
+    name: 'місті Долина',
     image: 'https://www.realestate.if.ua/assets/images/locations/dolyna.jpg',
     listings: [
       { id: 'd1', title: 'Будинок 54 м², ₴754 200', href: '/district/town/dolyna/#listing-1' },
@@ -86,7 +86,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'halych',
-    name: 'Галич',
+    name: 'місті Галич',
     image: 'https://www.realestate.if.ua/assets/images/locations/halych.jpg',
     listings: [
       { id: 'h1', title: 'Квартира 57 м², ₴1 019 400', href: '/district/town/halych/#listing-1' },
@@ -97,7 +97,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'horodenka',
-    name: 'Городенка',
+    name: 'місті Городенка',
     image: 'https://www.realestate.if.ua/assets/images/locations/horodenka.jpg',
     listings: [
       { id: 'r1', title: 'Будинок 100 м², ₴1 054 000', href: '/district/town/horodenka/#listing-1' },
@@ -108,7 +108,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'kosiv',
-    name: 'Косів',
+    name: 'місті Косів',
     image: 'https://www.realestate.if.ua/assets/images/locations/kosiv.jpg',
     listings: [
       { id: 's1', title: 'Квартира 45 м², ₴854 800', href: '/district/town/kosiv/#listing-1' },
@@ -119,7 +119,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'nadvirna',
-    name: 'Надвірна',
+    name: 'місті Надвірна',
     image: 'https://www.realestate.if.ua/assets/images/locations/nadvirna.jpg',
     listings: [
       { id: 'n1', title: 'Будинок 120 м², ₴5 007 000', href: '/district/town/nadvirna/#listing-1' },
@@ -130,7 +130,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'rohatyn',
-    name: 'Рогатин',
+    name: 'місті Рогатин',
     image: 'https://www.realestate.if.ua/assets/images/locations/rohatyn.jpg',
     listings: [
       { id: 't1', title: 'Будинок 61 м², ₴565 650', href: '/district/town/rohatyn/#listing-1' },
@@ -141,7 +141,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'sniatyn',
-    name: 'Снятин',
+    name: 'місті Снятин',
     image: 'https://www.realestate.if.ua/assets/images/locations/sniatyn.jpg',
     listings: [
       { id: 'a1', title: 'Будинок 120 м², ₴1 258 000', href: '/district/town/sniatyn/#listing-1' },
@@ -152,7 +152,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'tlumach',
-    name: 'Тлумач',
+    name: 'місті Тлумач',
     image: 'https://www.realestate.if.ua/assets/images/locations/tlumach.jpg',
     listings: [
       { id: 'u1', title: 'Будинок 88 м², ₴586 600', href: '/district/town/tlumach/#listing-1' },
@@ -163,7 +163,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'tysmenytsya',
-    name: 'Тисмениця',
+    name: 'місті Тисмениця',
     image: 'https://www.realestate.if.ua/assets/images/locations/tysmenytsya.jpg',
     listings: [
       { id: 'v1', title: 'Будинок 114 м², ₴5 363 200', href: '/district/town/tysmenytsya/#listing-1' },
