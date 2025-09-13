@@ -1,5 +1,4 @@
 // /src/components/LocationTemplate.tsx
-import Link from 'next/link';
 import LocationBlock from './LocationBlock'; // Імпортуємо LocationBlock
 
 type Listing = {
