@@ -1,9 +1,8 @@
 // /src/app/page.tsx
-import LocationSection from '@/components/LocationSection';
-import type { LocationData } from '@/components/LocationSection';
+import LocationBlock from '@/components/LocationBlock';
 
 // --- Міста обласного значення ---
-const citiesRegional: LocationData[] = [
+const citiesRegional = [
   {
     slug: 'bolekhiv',
     name: 'Болехів',
@@ -49,7 +48,7 @@ const citiesRegional: LocationData[] = [
 ];
 
 // --- Міста районного значення ---
-const townsDistrict: LocationData[] = [
+const townsDistrict = [
   {
     slug: 'dolyna',
     name: 'Долина',
@@ -116,7 +115,7 @@ const townsDistrict: LocationData[] = [
 ];
 
 // --- Райони області ---
-const districts: LocationData[] = [
+const districts = [
   {
     slug: 'ivano-frankivskyy',
     name: 'Івано-Франківський район',
@@ -163,7 +162,7 @@ const districts: LocationData[] = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 py-12 px-4 max-w-7xl mx-auto space-y-16">
       {/* Заголовок */}
       <header className="text-center">
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800 leading-tight">
@@ -177,28 +176,64 @@ export default function Home() {
       </header>
 
       {/* Секція: Міста обласного значення */}
-      <LocationSection
-        title="Нерухомість в містах обласного значення"
-        description="Оберіть місто, щоб переглянути доступні пропозиції"
-        locations={citiesRegional}
-        baseUrl="/region/city"
-      />
+      <section>
+        <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
+          Нерухомість в містах обласного значення
+        </h2>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {citiesRegional.map((city) => (
+            <LocationBlock
+              key={city.slug}
+              slug={city.slug}
+              name={city.name}
+              image={city.image}
+              listings={city.listings}
+              totalCount={city.totalCount}
+              baseUrl="/region/city"
+            />
+          ))}
+        </div>
+      </section>
 
       {/* Секція: Міста районного значення */}
-      <LocationSection
-        title="Нерухомість в містах районного значення"
-        description="Оберіть місто, щоб переглянути доступні пропозиції"
-        locations={townsDistrict}
-        baseUrl="/district/town"
-      />
+      <section>
+        <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
+          Нерухомість в містах районного значення
+        </h2>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {townsDistrict.map((town) => (
+            <LocationBlock
+              key={town.slug}
+              slug={town.slug}
+              name={town.name}
+              image={town.image}
+              listings={town.listings}
+              totalCount={town.totalCount}
+              baseUrl="/district/town"
+            />
+          ))}
+        </div>
+      </section>
 
       {/* Секція: Райони */}
-      <LocationSection
-        title="Нерухомість в районах Івано-Франківської області"
-        description="Оберіть район, щоб переглянути доступні пропозиції"
-        locations={districts}
-        baseUrl="/district"
-      />
+      <section>
+        <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
+          Нерухомість в районах Івано-Франківської області
+        </h2>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {districts.map((dist) => (
+            <LocationBlock
+              key={dist.slug}
+              slug={dist.slug}
+              name={dist.name}
+              image={dist.image}
+              listings={dist.listings}
+              totalCount={dist.totalCount}
+              baseUrl="/district"
+            />
+          ))}
+        </div>
+      </section>
 
       {/* Підвал */}
       <footer className="bg-gray-800 text-white py-6 text-center text-sm rounded-t-lg mt-16">
