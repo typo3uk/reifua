@@ -4,7 +4,7 @@ import LocationTemplate, { LocationData } from '@/components/LocationTemplate';
 const townsDistrict: LocationData[] = [
   {
     slug: 'dolyna',
-    name: 'Долина',
+    name: 'місто Долина',
     image: 'https://www.realestate.if.ua/assets/images/locations/dolyna.jpg',
     listings: [
       { id: 'd1', title: 'Будинок 54 м², ₴754 200', href: '/district/town/dolyna/' },
@@ -15,7 +15,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'halych',
-    name: 'Галич',
+    name: 'місто Галич',
     image: 'https://www.realestate.if.ua/assets/images/locations/halych.jpg',
     listings: [
       { id: 'h1', title: 'Квартира 57 м², ₴1 019 400', href: '/district/town/halych/' },
@@ -26,7 +26,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'horodenka',
-    name: 'Городенка',
+    name: 'місто Городенка',
     image: 'https://www.realestate.if.ua/assets/images/locations/horodenka.jpg',
     listings: [
       { id: 'r1', title: 'Будинок 100 м², ₴1 054 000', href: '/district/town/horodenka/' },
@@ -37,7 +37,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'kosiv',
-    name: 'Косів',
+    name: 'місто Косів',
     image: 'https://www.realestate.if.ua/assets/images/locations/kosiv.jpg',
     listings: [
       { id: 's1', title: 'Квартира 45 м², ₴854 800', href: '/district/town/kosiv/' },
@@ -48,7 +48,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'nadvirna',
-    name: 'Надвірна',
+    name: 'місто Надвірна',
     image: 'https://www.realestate.if.ua/assets/images/locations/nadvirna.jpg',
     listings: [
       { id: 'n1', title: 'Будинок 120 м², ₴5 007 000', href: '/district/town/nadvirna/' },
@@ -59,7 +59,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'rohatyn',
-    name: 'Рогатин',
+    name: 'місто Рогатин',
     image: 'https://www.realestate.if.ua/assets/images/locations/rohatyn.jpg',
     listings: [
       { id: 't1', title: 'Будинок 61 м², ₴565 650', href: '/district/town/rohatyn/' },
@@ -70,7 +70,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'sniatyn',
-    name: 'Снятин',
+    name: 'місто Снятин',
     image: 'https://www.realestate.if.ua/assets/images/locations/sniatyn.jpg',
     listings: [
       { id: 'a1', title: 'Будинок 120 м², ₴1 258 000', href: '/district/town/sniatyn/' },
@@ -81,7 +81,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'tlumach',
-    name: 'Тлумач',
+    name: 'місто Тлумач',
     image: 'https://www.realestate.if.ua/assets/images/locations/tlumach.jpg',
     listings: [
       { id: 'u1', title: 'Будинок 88 м², ₴586 600', href: '/district/town/tlumach/' },
@@ -92,7 +92,7 @@ const townsDistrict: LocationData[] = [
   },
   {
     slug: 'tysmenytsya',
-    name: 'Тисмениця',
+    name: 'місто Тисмениця',
     image: 'https://www.realestate.if.ua/assets/images/locations/tysmenytsya.jpg',
     listings: [
       { id: 'v1', title: 'Будинок 114 м², ₴5 363 200', href: '/district/town/tysmenytsya/' },

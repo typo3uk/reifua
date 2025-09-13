@@ -4,7 +4,7 @@ import LocationTemplate, { LocationData } from '@/components/LocationTemplate';
 const citiesRegional: LocationData[] = [
   {
     slug: 'bolekhiv',
-    name: 'Болехів',
+    name: 'місто Болехів',
     image: 'https://www.realestate.if.ua/assets/images/locations/bolekhiv.jpg',
     listings: [
       { id: 'c1', title: 'Продається будинок 32.4 м², ₴628 500', href: '/region/city/bolekhiv/' },
@@ -15,7 +15,7 @@ const citiesRegional: LocationData[] = [
   },
   {
     slug: 'burshtyn',
-    name: 'Бурштин',
+    name: 'місто Бурштин',
     image: 'https://www.realestate.if.ua/assets/images/locations/burshtyn.jpg',
     listings: [
       { id: 'b1', title: 'Продаж будинку 112 м², ₴921 800', href: '/region/city/burshtyn/' },
@@ -26,7 +26,7 @@ const citiesRegional: LocationData[] = [
   },
   {
     slug: 'ivano-frankivsk',
-    name: 'Івано-Франківськ',
+    name: 'місто Івано-Франківськ',
     image: 'https://www.realestate.if.ua/assets/images/locations/ivano-frankivsk.jpg',
     listings: [
       { id: 'i1', title: 'Квартира 45.4 м², ₴1 801 700', href: '/region/city/ivano-frankivsk/' },
@@ -37,7 +37,7 @@ const citiesRegional: LocationData[] = [
   },
   {
     slug: 'kalush',
-    name: 'Калуш',
+    name: 'місто Калуш',
     image: 'https://www.realestate.if.ua/assets/images/locations/kalush.jpg',
     listings: [
       { id: 'k1', title: 'Будинок 119 м², ₴3 310 100', href: '/region/city/kalush/' },
@@ -48,7 +48,7 @@ const citiesRegional: LocationData[] = [
   },
   {
     slug: 'kolomyia',
-    name: 'Коломия',
+    name: 'місто Коломия',
     image: 'https://www.realestate.if.ua/assets/images/locations/kolomyia.jpg',
     listings: [
       { id: 'o1', title: 'Будинок 122 м², ₴5 447 000', href: '/region/city/kolomyia/' },
@@ -59,7 +59,7 @@ const citiesRegional: LocationData[] = [
   },
   {
     slug: 'yaremche',
-    name: 'Яремче',
+    name: 'місто Яремче',
     image: 'https://www.realestate.if.ua/assets/images/locations/yaremche.jpg',
     listings: [
       { id: 'y1', title: 'Земельна ділянка 1191 м², ₴3 992 232', href: '/region/city/yaremche/' },
