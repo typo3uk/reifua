@@ -1,8 +1,8 @@
 // src/app/page.tsx
-import LocationBlock from '@/components/LocationBlock';
+import LocationTemplate, { LocationData } from '@/components/LocationTemplate';
 
 // --- Міста обласного значення ---
-const cities = [
+const citiesRegional: LocationData[] = [
   {
     slug: 'bolekhiv',
     name: 'Болехів',
@@ -72,7 +72,7 @@ const cities = [
 ];
 
 // --- Міста районного значення ---
-const towns = [
+const townsDistrict: LocationData[] = [
   {
     slug: 'dolyna',
     name: 'Долина',
@@ -175,7 +175,7 @@ const towns = [
 ];
 
 // --- Райони області ---
-const districts = [
+const districts: LocationData[] = [
   {
     slug: 'ivano-frankivskyy',
     name: 'Івано-Франківський район',
@@ -245,88 +245,29 @@ const districts = [
 ];
 
 export default function Home() {
+  const sections = [
+    {
+      title: 'Нерухомість в містах обласного значення',
+      locations: citiesRegional,
+      baseUrl: '/region/city',
+    },
+    {
+      title: 'Нерухомість в містах районного значення',
+      locations: townsDistrict,
+      baseUrl: '/district/town',
+    },
+    {
+      title: 'Нерухомість в районах Івано-Франківської області',
+      locations: districts,
+      baseUrl: '/district',
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Заголовок */}
-      <header className="bg-white shadow-sm py-8 px-4 text-center">
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-800 leading-tight">
-          Оголошення про продаж і оренду нерухомого майна
-          <br />
-          <span className="text-blue-600">в містах та районах Івано-Франківської області</span>
-        </h1>
-        <p className="mt-4 text-gray-600 max-w-3xl mx-auto">
-          Виберіть місцевість, де б ви хотіли знайти, купити чи продати нерухомість або побудувати чи просто зробити ремонт і облаштувати свою оселю
-        </p>
-      </header>
-
-      <div className="py-12 px-4 max-w-7xl mx-auto space-y-16">
-
-        {/* --- Міста обласного значення --- */}
-        <section>
-          <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
-            Нерухомість в містах обласного значення
-          </h2>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {cities.map((city) => (
-              <LocationBlock
-                key={city.slug}
-                slug={city.slug}
-                name={city.name}
-                image={city.image}
-                listings={city.listings}
-                totalCount={city.totalCount}
-                baseUrl="/region/city"
-              />
-            ))}
-          </div>
-        </section>
-
-        {/* --- Міста районного значення --- */}
-        <section>
-          <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
-            Нерухомість в містах районного значення
-          </h2>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {towns.map((town) => (
-              <LocationBlock
-                key={town.slug}
-                slug={town.slug}
-                name={town.name}
-                image={town.image}
-                listings={town.listings}
-                totalCount={town.totalCount}
-                baseUrl="/district/town"
-              />
-            ))}
-          </div>
-        </section>
-
-        {/* --- Райони області --- */}
-        <section>
-          <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
-            Нерухомість в районах Івано-Франківської області
-          </h2>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {districts.map((dist) => (
-              <LocationBlock
-                key={dist.slug}
-                slug={dist.slug}
-                name={dist.name}
-                image={dist.image}
-                listings={dist.listings}
-                totalCount={dist.totalCount}
-                baseUrl="/district"
-              />
-            ))}
-          </div>
-        </section>
-
-      </div>
-
-      {/* Підвал */}
-      <footer className="bg-gray-800 text-white py-6 text-center text-sm">
-        &copy; {new Date().getFullYear()} reifua.vercel.app — Нерухомість у Івано-Франківській області
-      </footer>
-    </div>
+    <LocationTemplate
+      title="Оголошення про продаж і оренду нерухомого майна"
+      description="в містах та районах Івано-Франківської області"
+      sections={sections}
+    />
   );
 }
