@@ -73,34 +73,37 @@ export default function RegionCityPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 max-w-7xl mx-auto">
-      {/* Заголовок сторінки */}
-      <header className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-800">
+    <div className="min-h-screen bg-gray-50">
+      {/* Заголовок */}
+      <header className="bg-white shadow-sm py-8 px-4 text-center">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-800 leading-tight">
           Нерухомість в містах обласного значення
         </h1>
-        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+        <p className="mt-4 text-gray-600 max-w-3xl mx-auto">
           Оберіть місто, щоб переглянути доступні пропозиції
         </p>
       </header>
 
-      {/* Список міст */}
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {cities.map((city) => (
-          <LocationBlock
-            key={city.slug}
-            slug={city.slug}
-            name={city.name}
-            image={city.image}
-            listings={city.listings}
-            totalCount={city.totalCount}
-            baseUrl="/region/city"
-          />
-        ))}
+      {/* Головний контейнер з відступами — ТЕПЕР Є */}
+      <div className="py-12 px-4 max-w-7xl mx-auto space-y-16">
+        {/* Список міст */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {cities.map((city) => (
+            <LocationBlock
+              key={city.slug}
+              slug={city.slug}
+              name={city.name}
+              image={city.image}
+              listings={city.listings}
+              totalCount={city.totalCount}
+              baseUrl="/region/city"
+            />
+          ))}
+        </div>
       </div>
 
       {/* Підвал */}
-      <footer className="bg-gray-800 text-white py-6 text-center text-sm mt-16 rounded-t-lg">
+      <footer className="bg-gray-800 text-white py-6 text-center text-sm">
         &copy; {new Date().getFullYear()} reifua.vercel.app — Нерухомість у Івано-Франківській області
       </footer>
     </div>

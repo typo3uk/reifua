@@ -258,7 +258,7 @@ export default function Home() {
           Виберіть місцевість, де б ви хотіли знайти, купити чи продати нерухомість або побудувати чи просто зробити ремонт і облаштувати свою оселю
         </p>
       </header>
-
+      <div className="py-12 px-4 max-w-7xl mx-auto space-y-16">
       <div className="py-12 px-4 max-w-7xl mx-auto space-y-16">
 
         {/* --- Міста обласного значення --- */}
